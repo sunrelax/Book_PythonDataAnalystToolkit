@@ -80,4 +80,61 @@ now_row
 
 now_row.drop(1)
 
+
+import html5lib
+import numpy as np
+import pandas as pd
 periodic_table=pd.DataFrame({'Element':['Hydrogen','Helium','Lithium','Beryllium','Boron']},index=['H','He','Li','Be','B'])
+periodic_table=pd.DataFrame({'Element':['Hydrogen','Helium','Lithium','Beryllium','Boron'],'Symbols':['H','He','Li','Be','B']})
+periodic_table
+periodic_table.set_index(['Symbols'])
+periodic_table.reset_index()
+
+titanic=pd.read_csv('titanic.csv',index_col='PassengerId')
+titanic.head()
+
+#pag173
+periodic_table=pd.DataFrame({'Atomic Number':[1,2,3,4,5],'Element':['Hydrogen','Helium','Lithium','Beryllium','Boron'],'Symbols':['H','He','Li','Be','B']})
+periodic_table
+
+
+
+import time
+start_time = time.time()
+
+periodic_table[periodic_table['Atomic Number']==2]
+
+print("Process finished --- %s seconds ---" % (time.time() - start_time))
+
+periodic_table.set_index(['Atomic Number'])
+
+
+start_time = time.time()
+
+periodic_table[periodic_table['Atomic Number']==2]
+
+print("Process finished --- %s seconds ---" % (time.time() - start_time))
+
+
+start_time = time.time()
+
+periodic_table.loc[2]
+
+print("Process finished --- %s seconds ---" % (time.time() - start_time))
+
+
+periodic_table.index[2]=0
+
+#pag175
+periodic_table=pd.DataFrame({'Element':['Hydrogen','Helium','Lithium','Beryllium','Boron']},index=['H','He','Li','Be','B'])
+column_index=periodic_table.columns
+column_index.values
+column_index.hasnans
+column_index.nbytes
+periodic_table
+
+#pag176
+s1=pd.Series(np.arange(10),index=np.arange(10))
+s2=pd.Series(np.arange(10),index=np.arange(1,11))
+s1+s2
+3+6

@@ -43,3 +43,41 @@ import pandas as pd
 url="https://www.w3schools.com/sql/sql_create_table.asp"
 ps=pd.read_html(url)
 ps[0]
+
+combined_age=pd.DataFrame({'class 1':[22,40],'class 2':[24,50],'class 3':[20,45]})
+combined_age.index
+combined_age.columns
+combined_age.values
+combined_age.rename(columns={'class 1':'batch 1','class 2':'batch 2','class 3':'batch 3'},inplace=True)
+combined_age
+combined_age['class 4']=([18,40])
+combined_age.insert(2,'class 0',[18,35])
+combined_age=pd.DataFrame({'class 1':[22,40],'class 2':[24,50],'class 3':[20,45]})
+combined_age
+combined_age.loc[:,'class 4']=[20,40]
+combined_age=pd.DataFrame({'class 1':[32,22], 'class 2':[37,44], 'class 3':[41,33]})
+combined_age.append({'class 1':40,'class 2':50,'class 3':45}, ignore_index=True)
+combined_age.insert({'class 0',[18,35]})
+combined_age.index # AttributeError: 'dict' object has no attribute 'index'
+combined_age.columns=['batch 1', 'batch 2', 'batch 3']
+combined_age.rename(columns={'class 1':'batch 1','class 2':'batch 2','class 3':'batch 3'},inplace=True)
+
+import html5lib
+import numpy as np
+import pandas as pd
+now_row=pd.DataFrame({'class 1':[32,22], 'class 2':[37,44], 'class 3':[41,33]})
+now_row
+pd.concat([combined_age,now_row])
+del combined_age['class 3']
+del now_row['class 3']
+now_row
+
+import html5lib
+import numpy as np
+import pandas as pd
+now_row=pd.DataFrame({'class 1':[32,22], 'class 2':[37,44], 'class 3':[41,33]})
+now_row
+
+now_row.drop(1)
+
+periodic_table=pd.DataFrame({'Element':['Hydrogen','Helium','Lithium','Beryllium','Boron']},index=['H','He','Li','Be','B'])
